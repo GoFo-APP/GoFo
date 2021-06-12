@@ -17,41 +17,34 @@ public class GoFo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner input = new Scanner(System.in);
+        Lists list = new Lists();
         System.out.println("Welcome to GoFo!");
-        System.out.println("For signning up fill the following: ");
-        System.out.println("Name:");
-        String UserName = input.nextLine();
-        System.out.println("Location:");
-        String UserLocation = input.nextLine();
-        System.out.println("Phone Number:");
-        String phoneNum = input.nextLine();
-        System.out.println("Email Address:");
-        String emailAddress = input.nextLine();
-        System.out.println("Password:");
-        String password = input.nextLine();
-        System.out.println("Sign up as a Player or Playground Owner:");
-        String uType = input.nextLine();
-        User u1 = new User(UserName, UserLocation, phoneNum, emailAddress, password, uType);
-        if (u1.get_UserType().equalsIgnoreCase("player")) {
-            System.out.println("Book a Playground");
-        } else if (u1.get_UserType().equalsIgnoreCase("playground owner")) {
-            System.out.println("To request adding playground fill the following:");
-            System.out.println("Playground Name:");
-            String playgroundName = input.nextLine();
-            System.out.println("Playground Location:");
-            String playgroundLocation = input.nextLine();
-            System.out.println("Price per hour:");
-            double price = input.nextDouble();
-            System.out.println("Available Hours:");
-            double Hours = input.nextDouble();
-            System.out.println("Cancellation Period:");
-            int cancel = input.nextInt();
-
-            Playground g1 = new Playground(playgroundName, playgroundLocation, price, Hours, cancel);
-            playgroundList.add(g1);
+        /*User user=new User();
+        user.SignUp();
+        if("playground Owner".equalsIgnoreCase(user.get_UserType()))
+        {
+            PlaygroundOwner Po=new PlaygroundOwner(user.get_Name(), user.get_Location(), user.get_Phone(),user.get_Email(), user.get_Password());
+            list.playgroundOwnerList.add(Po);
+            System.out.println("Playground owner acount created successfully");
         }
+        else if("player".equalsIgnoreCase(user.get_UserType()))
+        {
+            Player player=new Player(user.get_Name(), user.get_Location(), user.get_Phone(),user.get_Email(), user.get_Password());
+            list.playerList.add(player);
+            System.out.println("Player acount created successfully");
+        }
+         */
+        PlaygroundOwner PO1 = new PlaygroundOwner();
+        PO1.requestPlayground();
+        //System.out.println(PO1.OwnerPlaygrounds.get(0));
+
+        PO1.requestPlayground();
+        //System.out.println(PO1.OwnerPlaygrounds.get(1));
+
+        System.out.println("Book a Playground");
+        Player p = new Player();
+        p.bookPlayground();
 
     }
 
